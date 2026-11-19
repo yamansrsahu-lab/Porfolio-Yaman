@@ -1,0 +1,7 @@
+# Netlify-style redirects. (Ignored by Vercel — set the primary domain to the
+# non-www host in project settings; HTTPS is automatic.)
+
+# www -> non-www, forcing HTTPS
+https://www.yourdomain.com/*   https://yourdomain.com/:splat   301!
+http://www.yourdomain.com/*    https://yourdomain.com/:splat   301!
+http://yourdomain.com/*        https://yourdomain.com/:splat   301!
