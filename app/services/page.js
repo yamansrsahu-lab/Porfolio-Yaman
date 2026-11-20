@@ -5,6 +5,155 @@ import Schema from "@/components/ui/Schema";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import { SITE_URL } from "@/data/site";
 
+const ICONS = {
+  "web-development": (
+    <>
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </>
+  ),
+  "web-apps": (
+    <>
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="M2 9h20" />
+      <circle cx="5" cy="6.5" r="0.6" />
+      <circle cx="7.5" cy="6.5" r="0.6" />
+    </>
+  ),
+  "ui-ux": (
+    <>
+      <path d="M12 20h9" />
+      <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+    </>
+  ),
+  "seo-ready": (
+    <>
+      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+    </>
+  ),
+  wordpress: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 9h18" />
+      <path d="M9 21V9" />
+    </>
+  ),
+  support: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="3.5" />
+      <path d="M5 5l4.2 4.2M14.8 14.8 19 19M19 5l-4.2 4.2M5 19l4.2-4.2" />
+    </>
+  ),
+  "seo-keyword-research": (
+    <>
+      <circle cx="11" cy="11" r="7" />
+      <path d="M21 21l-4.3-4.3" />
+    </>
+  ),
+  "seo-on-page": (
+    <>
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <path d="M9 15l2 2 4-4" />
+    </>
+  ),
+  "seo-content": (
+    <>
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <path d="M8 13h8M8 17h5M8 9h2" />
+    </>
+  ),
+  "seo-off-page": (
+    <>
+      <path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7" />
+      <path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7" />
+    </>
+  ),
+  "seo-technical": (
+    <>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </>
+  ),
+};
+
+function Icon({ id }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      {ICONS[id] || ICONS["seo-ready"]}
+    </svg>
+  );
+}
+
+function SeoArt() {
+  return (
+    <svg
+      className="seo-art"
+      viewBox="0 0 420 260"
+      role="img"
+      aria-label="Illustration of a website climbing Google search rankings with backlinks"
+    >
+      <defs>
+        <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#4cc274" />
+          <stop offset="1" stopColor="#7fd99a" />
+        </linearGradient>
+      </defs>
+      {/* browser card */}
+      <rect x="22" y="26" width="286" height="208" rx="16" fill="#fff" stroke="#d6efdd" />
+      <circle cx="42" cy="46" r="3.4" fill="#ffd23f" />
+      <circle cx="54" cy="46" r="3.4" fill="#7fd99a" />
+      <circle cx="66" cy="46" r="3.4" fill="#d6efdd" />
+      {/* search bar */}
+      <rect x="40" y="62" width="250" height="26" rx="13" fill="#f1fbf3" stroke="#d6efdd" />
+      <circle cx="58" cy="75" r="6" fill="none" stroke="#4cc274" strokeWidth="2" />
+      <path d="M62.5 79.5 67 84" stroke="#4cc274" strokeWidth="2" strokeLinecap="round" />
+      <rect x="74" y="71" width="120" height="8" rx="4" fill="#cdecd6" />
+      {/* ranking rows */}
+      <g>
+        <rect x="40" y="104" width="250" height="30" rx="8" fill="url(#sg)" />
+        <text x="54" y="123" fontFamily="monospace" fontSize="13" fill="#fff" fontWeight="700">#1</text>
+        <rect x="76" y="114" width="150" height="7" rx="3.5" fill="#ffffff" opacity="0.9" />
+        <rect x="76" y="124" width="92" height="5" rx="2.5" fill="#ffffff" opacity="0.6" />
+      </g>
+      <g opacity="0.85">
+        <rect x="40" y="142" width="250" height="26" rx="8" fill="#f1fbf3" stroke="#d6efdd" />
+        <text x="54" y="159" fontFamily="monospace" fontSize="12" fill="#1d7a43" fontWeight="700">#2</text>
+        <rect x="76" y="150" width="150" height="6" rx="3" fill="#cdecd6" />
+        <rect x="76" y="159" width="80" height="4" rx="2" fill="#d6efdd" />
+      </g>
+      <g opacity="0.7">
+        <rect x="40" y="176" width="250" height="26" rx="8" fill="#f1fbf3" stroke="#d6efdd" />
+        <text x="54" y="193" fontFamily="monospace" fontSize="12" fill="#1d7a43" fontWeight="700">#3</text>
+        <rect x="76" y="184" width="130" height="6" rx="3" fill="#cdecd6" />
+      </g>
+      {/* rising chart + backlink nodes */}
+      <polyline
+        points="320,206 344,180 368,190 392,140"
+        fill="none"
+        stroke="#4cc274"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="320" cy="206" r="5" fill="#fff" stroke="#4cc274" strokeWidth="2.5" />
+      <circle cx="344" cy="180" r="5" fill="#fff" stroke="#4cc274" strokeWidth="2.5" />
+      <circle cx="368" cy="190" r="5" fill="#fff" stroke="#4cc274" strokeWidth="2.5" />
+      <circle cx="392" cy="140" r="7" fill="#ffd23f" stroke="#fff" strokeWidth="2.5" />
+      <path d="M392 133v-20M392 113l-6 6M392 113l6 6" stroke="#4cc274" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      {/* backlink dots feeding card */}
+      <g stroke="#7fd99a" strokeWidth="1.6" strokeDasharray="3 4">
+        <path d="M330 70 308 92" />
+        <path d="M352 48 310 70" />
+      </g>
+      <circle cx="332" cy="68" r="4" fill="#7fd99a" />
+      <circle cx="354" cy="46" r="4" fill="#ffd23f" />
+    </svg>
+  );
+}
+
 export const metadata = {
   title: "Web Development & SEO Services in Raipur | Yaman Sahu",
   description:
@@ -98,8 +247,8 @@ const seoServices = [
   },
   {
     id: "seo-off-page",
-    name: "Off-page SEO & link building",
-    body: "Building your site's authority the honest, white-hat way: earning links through genuinely useful content, outreach and digital PR — so your reputation grows without risk.",
+    name: "Off-page SEO, backlinks & digital PR",
+    body: "Building your site's authority the honest, white-hat way: earning quality backlinks through genuinely useful content, outreach and digital PR — so your reputation grows without risk.",
     best: "sites that need more authority to compete.",
     get: "an outreach plan, link-worthy content and honest reporting.",
     dont: "buy links or use schemes that risk a Google penalty.",
@@ -211,9 +360,14 @@ export default function ServicesPage() {
                 className="service-card"
                 style={{ scrollMarginTop: 100 }}
               >
-                <span className="sc-num" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <div className="sc-top">
+                  <span className="sc-icon" aria-hidden="true">
+                    <Icon id={s.id} />
+                  </span>
+                  <span className="sc-num" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
                 <h2>{s.name}</h2>
                 <p>{s.body}</p>
                 <ul className="sc-meta">
@@ -260,6 +414,32 @@ export default function ServicesPage() {
               website into one that brings enquiries, done the white-hat way.
             </p>
           </div>
+
+          <div className="seo-banner rv">
+            <div className="seo-banner-copy">
+              <span className="mono">How it works together</span>
+              <h3>
+                From page 5 to page 1 —
+                <br />
+                the honest way.
+              </h3>
+              <p>
+                Keyword research points to the right pages, on-page and technical
+                SEO make them easy to read and fast to load, strong content earns
+                trust, and quality backlinks build authority. Together they move
+                you up the results — no bought links, no risky shortcuts.
+              </p>
+              <div className="seo-chips">
+                <span>Keyword research</span>
+                <span>On-page SEO</span>
+                <span>Content</span>
+                <span>Backlinks</span>
+                <span>Technical SEO</span>
+              </div>
+            </div>
+            <SeoArt />
+          </div>
+
           <div className="service-grid rv">
             {seoServices.map((s, i) => (
               <article
@@ -268,9 +448,14 @@ export default function ServicesPage() {
                 className="service-card"
                 style={{ scrollMarginTop: 100 }}
               >
-                <span className="sc-num" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <div className="sc-top">
+                  <span className="sc-icon" aria-hidden="true">
+                    <Icon id={s.id} />
+                  </span>
+                  <span className="sc-num" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
                 <h2>{s.name}</h2>
                 <p>{s.body}</p>
                 <ul className="sc-meta">
