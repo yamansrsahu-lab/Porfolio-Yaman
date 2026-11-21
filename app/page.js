@@ -2,7 +2,7 @@ import Hero from "@/components/home/Hero";
 import Marquee from "@/components/home/Marquee";
 import WhyMe from "@/components/home/WhyMe";
 import WhatIBuild from "@/components/home/WhatIBuild";
-import FeaturedProjects from "@/components/home/FeaturedProjects";
+import ProjectCoverflow from "@/components/home/ProjectCoverflow";
 import Approach from "@/components/home/Approach";
 import HomeFaq from "@/components/home/HomeFaq";
 import CTA from "@/components/home/CTA";
@@ -69,7 +69,7 @@ export default function HomePage() {
       <Marquee />
       <WhyMe />
       <WhatIBuild />
-      <FeaturedProjects />
+      <ProjectCoverflow />
       <Approach />
       <HomeFaq />
       <CTA />

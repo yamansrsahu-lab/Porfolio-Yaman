@@ -1946,3 +1946,253 @@ table.tbl td:first-child {
     rgba(214, 245, 222, 0.5) 100%
   );
 }
+
+/* ============================================================
+   3D Project Coverflow  (home showcase)
+   ============================================================ */
+.cf-section {
+  position: relative;
+  overflow: hidden;
+  padding: 92px 0 70px;
+  background:
+    radial-gradient(90% 60% at 50% -10%, rgba(127, 217, 154, 0.22), transparent 60%),
+    radial-gradient(70% 50% at 85% 110%, rgba(255, 210, 63, 0.14), transparent 60%),
+    linear-gradient(180deg, #0c2a1b 0%, #0a2016 60%, #081a12 100%);
+  color: #eaf6ee;
+}
+.cf-head {
+  margin-bottom: 20px;
+}
+.cf-head .mono {
+  background: rgba(127, 217, 154, 0.16);
+  color: #bdeccb;
+}
+.cf-head h2 {
+  color: #fff;
+}
+.cf-head h2::after {
+  background: linear-gradient(90deg, var(--green), var(--yellow));
+}
+.cf-head p {
+  color: #9fc3ad;
+}
+
+.cf-stage {
+  position: relative;
+  height: 460px;
+  margin: 10px 0 8px;
+  perspective: 1600px;
+  cursor: grab;
+  touch-action: pan-y;
+}
+.cf-stage:active {
+  cursor: grabbing;
+}
+.cf-track {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  display: grid;
+  place-items: center;
+}
+.cf-card {
+  position: absolute;
+  width: min(340px, 82vw);
+  height: 440px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: transform 0.6s var(--ease), opacity 0.6s var(--ease),
+    filter 0.6s var(--ease);
+  will-change: transform, opacity;
+  user-select: none;
+}
+.cf-card[data-active="true"] {
+  border-color: rgba(127, 217, 154, 0.5);
+  box-shadow: 0 50px 90px -24px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(127, 217, 154, 0.25);
+}
+.cf-card:not([data-active="true"]) {
+  cursor: pointer;
+}
+.cf-img {
+  position: relative;
+  height: 232px;
+  overflow: hidden;
+}
+.cf-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.cf-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(8, 26, 18, 0.65));
+}
+.cf-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  font: 11px var(--mono);
+  letter-spacing: 0.04em;
+  padding: 6px 11px;
+  border-radius: 999px;
+  color: #06230f;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+}
+.cf-body {
+  position: relative;
+  padding: 20px 22px 22px;
+}
+.cf-counter {
+  font: 13px var(--mono);
+  color: #7fd99a;
+  position: absolute;
+  top: -26px;
+  right: 18px;
+  background: rgba(8, 26, 18, 0.7);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.cf-counter span {
+  color: #8fb79d;
+}
+.cf-body h3 {
+  font-family: var(--head);
+  font-size: 23px;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 6px;
+}
+.cf-meta {
+  font: 12.5px var(--mono);
+  color: #9fd7b1;
+  margin-bottom: 10px;
+}
+.cf-body p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #b9d4c4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.cf-link {
+  font: 13px var(--mono);
+  color: #ffd23f;
+  text-decoration: none;
+}
+.cf-link:hover {
+  text-decoration: underline;
+}
+
+.cf-dots {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin: 6px 0 26px;
+}
+.cf-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 0.3s var(--ease);
+}
+.cf-dot[data-on="true"] {
+  width: 26px;
+  background: var(--green);
+}
+
+.cf-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+}
+.cf-pill-thumb {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.cf-pill-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cf-pill-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  padding-right: 6px;
+}
+.cf-pill-text strong {
+  font-size: 14px;
+  color: #fff;
+}
+.cf-pill-text span {
+  font: 11px var(--mono);
+  color: #9fc3ad;
+}
+.cf-nav {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.cf-nav:hover {
+  background: var(--green2);
+  transform: scale(1.08);
+}
+.cf-cta-wrap {
+  text-align: center;
+  margin-top: 34px;
+}
+
+@media (max-width: 640px) {
+  .cf-stage {
+    height: 430px;
+  }
+  .cf-card {
+    height: 410px;
+  }
+  .cf-img {
+    height: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-card {
+    transition: opacity 0.2s linear;
+  }
+}
