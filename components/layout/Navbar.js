@@ -28,17 +28,16 @@ export default function Navbar() {
   return (
     <nav className={`site-nav${scrolled ? " scrolled" : ""}`}>
       <div className="wrap">
-        <Link href="/" className="logo">
-          <span className="mark" aria-hidden="true">
-            YS
-          </span>
-          Yaman Sahu
-        </Link>
+        <div className="nav-bar">
+          <Link href="/" className="logo">
+            <span className="mark" aria-hidden="true">
+              YS
+            </span>
+            Yaman Sahu
+          </Link>
 
-        <div className="links">
-          {nav
-            .filter((l) => l.href !== "/")
-            .map((l) => (
+          <div className="nav-center">
+            {nav.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
@@ -48,26 +47,30 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
+          </div>
+
+          <Link href="/contact" className="btn-start nav-cta">
+            Start a Project
+            <span className="circ" aria-hidden="true">
+              →
+            </span>
+          </Link>
+
+          <button
+            type="button"
+            className="menu-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className={open ? "bars open" : "bars"} aria-hidden="true">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+          </button>
         </div>
-
-        <Link href="/contact" className="btn solid nav-cta">
-          Get a free review
-        </Link>
-
-        <button
-          type="button"
-          className="menu-toggle"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className={open ? "bars open" : "bars"} aria-hidden="true">
-            <i></i>
-            <i></i>
-            <i></i>
-          </span>
-        </button>
       </div>
 
       <div
@@ -87,7 +90,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link href="/contact" className="btn solid" style={{ marginTop: 8 }}>
-            Get a free review
+            Start a Project
           </Link>
         </div>
       </div>
