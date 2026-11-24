@@ -7,6 +7,7 @@ export default function sitemap() {
     { path: "/", priority: 1.0 },
     { path: "/about", priority: 0.8 },
     { path: "/services", priority: 0.9 },
+    { path: "/ai-calling", priority: 0.8 },
     { path: "/portfolio", priority: 0.8 },
     { path: "/blog", priority: 0.7 },
     { path: "/blog/how-much-does-a-business-website-cost-in-india", priority: 0.6 },
