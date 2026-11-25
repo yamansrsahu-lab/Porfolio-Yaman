@@ -22,6 +22,12 @@ const items = [
     service: "SEO-ready builds",
     href: "/services#seo-ready",
   },
+  {
+    build:
+      "AI voice agents and workflows that call leads, qualify them and book appointments for you",
+    service: "AI automation",
+    href: "/ai-calling",
+  },
 ];
 
 export default function WhatIBuild() {
@@ -32,7 +38,7 @@ export default function WhatIBuild() {
           <div>
             <span className="mono">What I build</span>
             <h2>
-              Four kinds of work,
+              Five kinds of work,
               <br />
               one way of working.
             </h2>
