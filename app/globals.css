@@ -3498,3 +3498,115 @@ table.tbl td:first-child {
     text-align: center;
   }
 }
+
+/* Talk-to-the-agent live band */
+.aic-talk {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 30px 34px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  color: #eaf6ee;
+  background: linear-gradient(135deg, #114327 0%, #0a2b1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px -40px rgba(0, 0, 0, 0.6);
+}
+.aic-talk::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green), var(--yellow));
+}
+.aic-talk-orb {
+  position: relative;
+  flex: none;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, var(--green2), var(--deep));
+  box-shadow: 0 0 0 10px rgba(127, 217, 154, 0.12);
+}
+.aic-talk-orb span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(127, 217, 154, 0.5);
+  animation: talkpulse 2.2s var(--ease) infinite;
+}
+@keyframes talkpulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+.aic-talk-orb svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.aic-talk-copy {
+  position: relative;
+  z-index: 1;
+}
+.aic-talk-copy .mono {
+  color: #bdeccb;
+  background: rgba(127, 217, 154, 0.16);
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.aic-talk-copy h2 {
+  color: #fff;
+  font-size: clamp(24px, 3vw, 34px);
+  margin: 12px 0 10px;
+}
+.aic-talk-copy h2::after {
+  display: none;
+}
+.aic-talk-copy p {
+  color: #b9d4c4;
+  font-size: 15.5px;
+  max-width: 620px;
+  margin-bottom: 16px;
+}
+.aic-talk-copy p strong {
+  color: var(--yellow);
+}
+.aic-talk-points {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.aic-talk-points li {
+  font: 12.5px var(--mono);
+  color: #d9efdf;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 7px 13px;
+  border-radius: 999px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .aic-talk-orb span {
+    animation: none;
+  }
+}
+@media (max-width: 680px) {
+  .aic-talk {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 22px;
+  }
+  .aic-talk-points {
+    justify-content: center;
+  }
+}

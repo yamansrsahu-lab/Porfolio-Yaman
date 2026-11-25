@@ -3,6 +3,7 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 import Schema from "@/components/ui/Schema";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import CallingDashboard from "@/components/ai-calling/CallingDashboard";
+import TalkWidget from "@/components/ai-calling/TalkWidget";
 import { SITE_URL } from "@/data/site";
 
 export const metadata = {
@@ -98,6 +99,35 @@ export default function AiCallingPage() {
         </div>
       </section>
 
+      <section style={{ paddingTop: 10 }}>
+        <div className="wrap">
+          <div className="aic-talk rv">
+            <div className="aic-talk-orb" aria-hidden="true">
+              <span />
+              <svg viewBox="0 0 24 24">
+                <path d="M12 1a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4z" />
+                <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8 22h8" />
+              </svg>
+            </div>
+            <div className="aic-talk-copy">
+              <span className="mono">Live demo</span>
+              <h2>Talk to the AI agent now</h2>
+              <p>
+                This is a real, working sales agent — not a recording. Tap
+                <strong> “कॉल शुरू करें / Start call” </strong>
+                in the bottom-right corner and just speak. It understands Hindi
+                and English, answers questions and can book a meeting.
+              </p>
+              <ul className="aic-talk-points">
+                <li>🎙️ Voice or text</li>
+                <li>🌐 Hindi + English</li>
+                <li>🔓 No login needed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="dashboard" style={{ paddingTop: 10 }}>
         <div className="wrap">
           <div className="sec-head rv">
@@ -146,6 +176,7 @@ export default function AiCallingPage() {
         </div>
       </section>
 
+      <TalkWidget />
       <RevealOnScroll />
     </>
   );
